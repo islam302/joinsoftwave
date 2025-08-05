@@ -1,0 +1,8 @@
+{
+  "name": "joinsoftwave-landing",
+  "version": "1.0.0",
+  "description": "Landing page for JoinSoftWave, showcasing software and AI solutions",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  }
+}

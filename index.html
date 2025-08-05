@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JoinSoftWave - Software & AI Solutions</title>
+    <link rel="stylesheet" href="style.css" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function App() {
+        return (
+          <div className="container">
+            <header>
+              <img src="assets/logo.svg" alt="Company Logo" className="logo" />
+              <h1>JoinSoftWave</h1>
+              <p>Software &amp; AI Solutions</p>
+            </header>
+            <section className="features">
+              <div className="feature">
+                <h2>Custom Software</h2>
+                <p>We build scalable, secure, and robust applications tailored to your business needs.</p>
+              </div>
+              <div className="feature">
+                <h2>AI Integration</h2>
+                <p>Unlock the power of artificial intelligence to automate workflows and gain deeper insights.</p>
+              </div>
+            </section>
+            <footer>
+              <p>Contact us: info@joinsoftwave.com</p>
+            </footer>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+  </body>
+</html>
