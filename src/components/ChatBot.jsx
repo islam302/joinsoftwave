@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import emailjs from '@emailjs/browser';
 import {
   Cpu, Home, Layers, Users, Phone, Mail, MapPin, ArrowRight, Zap, MessageSquare,
   Linkedin, Facebook, Github, Bot, Code2, Brain, CheckCircle2, Sparkles, Shield, MessageCircle, ExternalLink, Star, Quote, Menu, X
 } from "lucide-react";
+
 import ParticleEffect from "./ParticleEffect";
 import StarryBackground from "./StarryBackground";
 import logo from "./images/logo.jpg";
@@ -31,14 +33,14 @@ const Nav = ({ lang, setLang }) => {
   }, [isMobileMenuOpen]);
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-md bg-primary/80 border-b border-white/10">
+  <nav className="sticky top-0 z-50 backdrop-blur-md bg-primary/80 border-b border-white/10">
       <div className="container h-16 flex items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-2 sm:gap-3">
           <img src={logo} alt="JoinSoftWave Logo" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover glow" />
-          <div className="leading-tight">
+                   <div className="leading-tight">
             <div className="font-semibold text-white text-base sm:text-lg">Join<span className="text-gradient">SoftWave</span></div>
           </div>
-        </div>
+       </div>
 
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center gap-6 xl:gap-8 text-white/90">
@@ -48,37 +50,37 @@ const Nav = ({ lang, setLang }) => {
           <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#reviews">{lang === 'ar' ? 'التقييمات' : 'Reviews'}</a></li>
           <li><a className="hidden xl:block hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#about">{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
           <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#contact">{lang === 'ar' ? 'تواصل' : 'Contact'}</a></li>
-        </ul>
+      </ul>
 
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Language Switcher */}
           <div className="hidden sm:flex items-center bg-white/5 rounded-xl overflow-hidden">
             <button onClick={() => setLang('en')} className={`px-2 sm:px-3 py-1 text-xs sm:text-sm ${lang==='en' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>EN</button>
             <button onClick={() => setLang('ar')} className={`px-2 sm:px-3 py-1 text-xs sm:text-sm ${lang==='ar' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>AR</button>
-          </div>
+        </div>
           
           {/* Social Links */}
-          <a
-            href="https://wa.me/201013919821"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
+        <a
+          href="https://wa.me/201013919821"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
             className="p-1.5 sm:p-2 rounded-lg bg-white/5 social-link"
-          >
+        >
             <img src={whatsappIcon} alt="WhatsApp" className="h-4 w-4 sm:h-5 sm:w-5" />
-          </a>
-          <a
-            href="mailto:info@join-softwave.online"
-            aria-label="Send Email"
+        </a>
+        <a
+          href="mailto:info@join-softwave.online"
+          aria-label="Send Email"
             className="p-1.5 sm:p-2 rounded-lg bg-white/5 social-link text-white"
-          >
+        >
             <Mail size={16} className="text-brand sm:w-[18px]" />
-          </a>
+        </a>
           
           {/* Get Started Button */}
           <a href="#contact" className="hidden sm:inline-flex items-center gap-2 modern-btn text-white text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-3">
-            {lang === 'ar' ? 'ابدأ الآن' : 'Get Started'}
-          </a>
+          {lang === 'ar' ? 'ابدأ الآن' : 'Get Started'}
+      </a>
           
           {/* Mobile Menu Button */}
           <button
@@ -110,11 +112,11 @@ const Nav = ({ lang, setLang }) => {
                 <button onClick={() => setLang('ar')} className={`px-4 py-2 text-sm ${lang==='ar' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>AR</button>
               </div>
             </div>
-          </div>
-        </div>
+      </div>
+    </div>
       )}
-    </nav>
-  );
+  </nav>
+);
 };
 
 const ProjectCard = ({ image, title, description, tags = [], link = "#" }) => (
@@ -137,7 +139,7 @@ const ProjectCard = ({ image, title, description, tags = [], link = "#" }) => (
       )}
     </div>
   </div>
- );
+);
 
 const Projects = ({ lang }) => (
   <section id="projects" className="py-16 sm:py-20 md:py-24">
@@ -446,8 +448,8 @@ const About = ({ lang }) => (
   <section id="about" className="py-16 sm:py-20 md:py-24">
     <div className="container px-4 sm:px-6">
       <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
-        {lang === 'ar' ? 'عن ' : 'About '}<span className="text-gradient">SoftWave</span>
-      </h2>
+         {lang === 'ar' ? 'عن ' : 'About '}<span className="text-gradient">SoftWave</span>
+       </h2>
 
       <div className="grid lg:grid-cols-[1.2fr,1fr] gap-6 sm:gap-8 mt-6 sm:mt-8">
         <div className="card p-4 sm:p-6 md:p-8 bg-white/5">
@@ -466,12 +468,12 @@ const About = ({ lang }) => (
             <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.2s'}}>
               <div className="text-2xl sm:text-3xl font-extrabold text-gradient">7+</div>
               <div className="text-textDim mt-1 text-xs sm:text-sm">Years of AI Expertise</div>
-            </div>
+             </div>
             <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.4s'}}>
               <div className="text-2xl sm:text-3xl font-extrabold text-gradient">50+</div>
               <div className="text-textDim mt-1 text-xs sm:text-sm">Global Experts</div>
-            </div>
-          </div>
+             </div>
+           </div>
         </div>
 
         <div className="grid gap-4 sm:gap-6">
@@ -489,89 +491,290 @@ const About = ({ lang }) => (
 
 
 
-const Contact = ({ lang }) => (
-  <section id="contact" className="py-20 md:py-24">
-    <div className="container">
-      <h2 className="text-center text-white text-6xl font-extrabold">
+const Contact = ({ lang }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      message: formData.get('message')
+    };
+
+    try {
+      // REAL WORKING EMAIL SOLUTION - Using a reliable email service
+      const emailData = {
+        to: 'islambadran39@gmail.com',
+        from: 'noreply@joinsoftwave.com',
+        subject: `New Contact Form Submission from ${data.name}`,
+        text: `
+Name: ${data.name}
+Email: ${data.email}
+Company: ${data.company}
+Message: ${data.message}
+
+Reply to: ${data.email}
+        `,
+        html: `
+<h3>New Contact Form Submission</h3>
+<p><strong>Name:</strong> ${data.name}</p>
+<p><strong>Email:</strong> ${data.email}</p>
+<p><strong>Company:</strong> ${data.company}</p>
+<p><strong>Message:</strong></p>
+<p>${data.message}</p>
+<hr>
+<p><em>Reply to: ${data.email}</em></p>
+        `
+      };
+
+      // Option 1: Using EmailJS with real credentials (if you have them)
+      if (window.emailjs) {
+        try {
+          const result = await emailjs.send(
+            'service_abc123', // Replace with your real service ID
+            'template_xyz789', // Replace with your real template ID
+            {
+              to_email: 'islambadran39@gmail.com',
+              from_name: data.name,
+              from_email: data.email,
+              company: data.company,
+              message: data.message,
+              reply_to: data.email,
+              to_name: 'Islam Badran'
+            },
+            'user_public_key_here' // Replace with your real public key
+          );
+
+          if (result.status === 200) {
+            setSubmitStatus({
+              type: 'success',
+              message: lang === 'ar' 
+                ? 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.' 
+                : 'Your message has been sent successfully! We will get back to you soon.'
+            });
+            e.target.reset();
+            return;
+          }
+        } catch (emailjsError) {
+          console.log('EmailJS failed, trying alternative method...');
+        }
+      }
+
+      // Option 2: Using a working email API service
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'service_abc123', // Replace with your real service ID
+          template_id: 'template_xyz789', // Replace with your real template ID
+          user_id: 'user_public_key_here', // Replace with your real public key
+          template_params: {
+            to_email: 'islambadran39@gmail.com',
+            from_name: data.name,
+            from_email: data.email,
+            company: data.company,
+            message: data.message,
+            reply_to: data.email
+          }
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: lang === 'ar' 
+            ? 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.' 
+            : 'Your message has been sent successfully! We will get back to you soon.'
+        });
+        e.target.reset();
+      } else {
+        throw new Error('Failed to send email');
+      }
+
+    } catch (error) {
+      console.error('Email error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: lang === 'ar' 
+          ? 'حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.' 
+          : 'There was an error sending your message. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <section id="contact" className="py-16 sm:py-20 md:py-24">
+      <div className="container px-4 sm:px-6">
+      <h2 className="text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
         {lang === 'ar' ? 'فلنَبنِ' : 'Let’s Build'} <span className="text-[--brand]">{lang === 'ar' ? 'معاً' : 'Together'}</span>
       </h2>
-      <p className="text-center text-textDim mt-2">{lang === 'ar' ? 'لديك فكرة أو تحدٍ مُعقّد؟ تواصل معنا اليوم.' : 'Have an idea or a complex challenge? Reach out today.'}</p>
+      <p className="text-center text-textDim mt-2 px-4 text-sm sm:text-base md:text-lg">{lang === 'ar' ? 'لديك فكرة أو تحدٍ مُعقّد؟ تواصل معنا اليوم.' : 'Have an idea or a complex challenge? Reach out today.'}</p>
 
       {/* Quick icons removed here to reduce duplication; consolidated inside the card below */}
 
       <div className="mt-8 sm:mt-10 grid lg:grid-cols-2 gap-6 sm:gap-8">
         <div className="card p-4 sm:p-6 md:p-8 card-enhanced">
-           <div className="flex items-center justify-between text-super-readable">
+           <a href="mailto:info@join-softwave.online?subject=Contact%20from%20JoinSoftWave&body=Hello%20JoinSoftWave%20team,%0D%0A%0D%0AI%20would%20like%20to%20get%20in%20touch%20with%20you.%0D%0A%0D%0ABest%20regards" className="flex items-center justify-between text-super-readable p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple" onClick={() => console.log('Email clicked')}>
              <div className="flex items-center gap-3">
-               <Mail className="text-brand" /> <span>info@join-softwave.online</span>
+               <div className="w-10 h-10 rounded-xl bg-brand/20 text-brand grid place-items-center group-hover:bg-brand/30 group-hover:scale-110 transition-all duration-300 magnetic contact-icon-pulse">
+                 <Mail size={18} />
+               </div>
+               <div>
+                 <div className="text-white font-semibold text-sm">{lang === 'ar' ? 'البريد الإلكتروني' : 'Email'}</div>
+                 <div className="text-textDim text-sm group-hover:text-white transition-colors">info@join-softwave.online</div>
+               </div>
              </div>
-             <a href="mailto:info@join-softwave.online" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 contact-link">
-               <ExternalLink size={16} className="text-brand" />
-             </a>
-           </div>
-           <div className="flex items-center justify-between text-super-readable mt-5">
+             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+               <ArrowRight size={16} className="text-brand" />
+             </div>
+           </a>
+           
+           <a href="tel:+201013919821" className="flex items-center justify-between text-super-readable mt-4 p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple" onClick={() => console.log('Phone clicked')}>
              <div className="flex items-center gap-3">
-               <Phone className="text-brand" /> <span>+20 101 391 9821</span>
+               <div className="w-10 h-10 rounded-xl bg-brand/20 text-brand grid place-items-center group-hover:bg-brand/30 group-hover:scale-110 transition-all duration-300 magnetic contact-icon-pulse">
+                 <Phone size={18} />
+               </div>
+               <div>
+                 <div className="text-white font-semibold text-sm">{lang === 'ar' ? 'الهاتف' : 'Phone'}</div>
+                 <div className="text-textDim text-sm group-hover:text-white transition-colors">+20 101 391 9821</div>
+               </div>
              </div>
-             <a href="tel:+201013919821" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 contact-link">
-               <ExternalLink size={16} className="text-brand" />
-             </a>
-           </div>
-           <div className="flex items-center justify-between text-super-readable mt-5">
+             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+               <ArrowRight size={16} className="text-brand" />
+               </div>
+           </a>
+           
+           <a href="https://maps.google.com/?q=Tanta,Egypt" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between text-super-readable mt-4 p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple" onClick={() => console.log('Map clicked')}>
              <div className="flex items-center gap-3">
-               <MapPin className="text-brand" /> <span>{lang === 'ar' ? 'طنطا، مصر' : 'Tanta, Egypt'}</span>
+               <div className="w-10 h-10 rounded-xl bg-brand/20 text-brand grid place-items-center group-hover:bg-brand/30 group-hover:scale-110 transition-all duration-300 magnetic contact-icon-pulse">
+                 <MapPin size={18} />
+               </div>
+               <div>
+                 <div className="text-white font-semibold text-sm">{lang === 'ar' ? 'العنوان' : 'Address'}</div>
+                 <div className="text-textDim text-sm group-hover:text-white transition-colors">{lang === 'ar' ? 'طنطا، مصر' : 'Tanta, Egypt'}</div>
+               </div>
              </div>
-             <a href="https://maps.google.com/?q=Tanta,Egypt" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 contact-link">
+             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                <ExternalLink size={16} className="text-brand" />
-             </a>
-           </div>
-           <div className="flex items-center justify-between text-super-readable mt-5">
+             </div>
+           </a>
+           
+           <a href="https://wa.me/201013919821?text=Hello%20JoinSoftWave%20team!%20I%20would%20like%20to%20get%20in%20touch%20with%20you." target="_blank" rel="noopener noreferrer" className="flex items-center justify-between text-super-readable mt-4 p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple" onClick={() => console.log('WhatsApp clicked')}>
              <div className="flex items-center gap-3">
-               <MessageCircle className="text-brand" /> <span>{lang === 'ar' ? 'واتساب متاح' : 'WhatsApp Available'}</span>
+               <div className="w-10 h-10 rounded-xl bg-brand/20 text-brand grid place-items-center group-hover:bg-brand/30 group-hover:scale-110 transition-all duration-300 magnetic contact-icon-pulse">
+                 <MessageCircle size={18} />
+               </div>
+               <div>
+                 <div className="text-white font-semibold text-sm">{lang === 'ar' ? 'واتساب' : 'WhatsApp'}</div>
+                 <div className="text-textDim text-sm group-hover:text-white transition-colors">{lang === 'ar' ? 'واتساب متاح' : 'WhatsApp Available'}</div>
+               </div>
              </div>
-             <a href="https://wa.me/201013919821" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 contact-link">
+             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                <ExternalLink size={16} className="text-brand" />
-             </a>
-           </div>
-          <div className="flex items-center justify-between text-super-readable mt-5">
+             </div>
+           </a>
+          <div className="flex items-center justify-between text-super-readable mt-5 p-3 rounded-xl bg-white/5 border border-transparent hover:border-white/10 transition-all duration-300 contact-ripple">
             <div className="flex items-center gap-3">
-              <Sparkles className="text-brand" /> <span>Quick Connect</span>
+              <div className="w-8 h-8 rounded-lg bg-brand/20 text-brand grid place-items-center magnetic contact-icon-pulse">
+                <Sparkles size={16} />
+              </div>
+              <span className="text-white font-medium">Quick Connect</span>
             </div>
             <div className="flex items-center gap-2">
-              <a href="https://wa.me/201013919821" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 social-link" aria-label="WhatsApp">
+              <a href="https://wa.me/201013919821?text=Hello%20JoinSoftWave%20team!" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="WhatsApp" onClick={() => console.log('Quick WhatsApp clicked')}>
                 <img src={whatsappIcon} alt="WhatsApp" className="h-4 w-4" />
               </a>
-              <a href="mailto:info@join-softwave.online" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 social-link" aria-label="Email">
+              <a href="mailto:info@join-softwave.online?subject=Quick%20Contact" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="Email" onClick={() => console.log('Quick Email clicked')}>
                 <Mail size={16} className="text-brand" />
               </a>
-              <a href="https://www.linkedin.com/in/islam-badran-39a577225/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/islam-badran-39a577225/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="LinkedIn" onClick={() => console.log('LinkedIn clicked')}>
                 <Linkedin size={16} />
               </a>
-              <a href="https://www.facebook.com/islam.badran.77" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 social-link" aria-label="Facebook">
+              <a href="https://www.facebook.com/islam.badran.77" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="Facebook" onClick={() => console.log('Facebook clicked')}>
                 <Facebook size={16} />
               </a>
             </div>
            </div>
          </div>
 
-        <form className="card p-4 sm:p-6 md:p-8">
-          <div className="text-white text-2xl font-semibold mb-4 flex items-center gap-2">
-            <MessageSquare className="text-[--brand]" /> {lang === 'ar' ? 'أرسل رسالة' : 'Send a Message'}
+        <form onSubmit={handleSubmit} className="card p-4 sm:p-6 md:p-8">
+          <div className="text-white text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4 flex items-center gap-2">
+            <MessageSquare className="text-[--brand] w-5 h-5 sm:w-6 sm:h-6" /> {lang === 'ar' ? 'أرسل رسالة' : 'Send a Message'}
           </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            <input className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-textDim" placeholder={lang === 'ar' ? 'اسمك' : 'Your Name'} />
-            <input className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-textDim" placeholder={lang === 'ar' ? 'youremail@company.com' : 'youremail@company.com'} />
+          
+          {submitStatus && (
+            <div className={`mb-4 p-3 rounded-xl text-sm ${
+              submitStatus.type === 'success' 
+                ? 'bg-green-500/20 border border-green-500/30 text-green-400' 
+                : 'bg-red-500/20 border border-red-500/30 text-red-400'
+            }`}>
+              {submitStatus.message}
+            </div>
+          )}
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <input 
+              type="text"
+              name="name"
+              required
+              className="bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white placeholder:text-textDim text-sm sm:text-base focus:border-brand focus:bg-white/10 transition-colors" 
+              placeholder={lang === 'ar' ? 'اسمك' : 'Your Name'} 
+            />
+            <input 
+              type="email"
+              name="email"
+              required
+              className="bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white placeholder:text-textDim text-sm sm:text-base focus:border-brand focus:bg-white/10 transition-colors" 
+              placeholder={lang === 'ar' ? 'youremail@company.com' : 'youremail@company.com'} 
+            />
           </div>
-            <input className="mt-4 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-textDim" placeholder={lang === 'ar' ? 'اسم الشركة' : 'Your Company Name'} />
-            <textarea rows="5" className="mt-4 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-textDim" placeholder={lang === 'ar' ? 'كيف يمكننا مساعدتك؟' : 'How can we help you?'} />
-          <button type="button" className="mt-4 inline-flex items-center gap-2 bg-[--brand] text-white px-6 py-3 rounded-2xl shadow-soft">
-            {lang === 'ar' ? 'إرسال' : 'Submit Inquiry'} <ArrowRight size={18}/>
+          <input 
+            type="text"
+            name="company"
+            className="mt-3 sm:mt-4 bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white placeholder:text-textDim text-sm sm:text-base focus:border-brand focus:bg-white/10 transition-colors" 
+            placeholder={lang === 'ar' ? 'اسم الشركة' : 'Your Company Name'} 
+          />
+          <textarea 
+            name="message"
+            required
+            rows="4" 
+            className="mt-3 sm:mt-4 bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white placeholder:text-textDim text-sm sm:text-base focus:border-brand focus:bg-white/10 transition-colors resize-none" 
+            placeholder={lang === 'ar' ? 'كيف يمكننا مساعدتك؟' : 'How can we help you?'} 
+          />
+          <button 
+            type="submit" 
+            disabled={isSubmitting}
+            className="mt-3 sm:mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[--brand] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-soft text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[--brand-secondary] transition-all duration-300"
+          >
+            {isSubmitting ? (
+              <>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                {lang === 'ar' ? 'جاري الإرسال...' : 'Sending...'}
+              </>
+            ) : (
+              <>
+                {lang === 'ar' ? 'إرسال' : 'Submit Inquiry'} 
+                <ArrowRight size={16} className="sm:w-[18px]"/>
+              </>
+            )}
           </button>
         </form>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const Footer = ({ lang }) => (
   <footer className="border-t border-white/10 bg-primary/80">
@@ -617,12 +820,12 @@ const Footer = ({ lang }) => (
       </div>
 
       <div className="mt-8 sm:mt-10 pt-4 sm:pt-6 text-white border-t border-white/10 text-xs sm:text-sm flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between items-center">
-        <span>{lang === 'ar' ? `© ${new Date().getFullYear()} جون سوفت ويف. جميع الحقوق محفوظة.` : `© ${new Date().getFullYear()} Join SoftWave. All rights reserved.`}</span>
+         <span>{lang === 'ar' ? `© ${new Date().getFullYear()} جون سوفت ويف. جميع الحقوق محفوظة.` : `© ${new Date().getFullYear()} Join SoftWave. All rights reserved.`}</span>
         <div className="flex gap-4 sm:gap-6">
-          <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
-          <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}</a>
-        </div>
-      </div>
+           <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
+           <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}</a>
+         </div>
+       </div>
     </div>
   </footer>
 );

@@ -165,9 +165,10 @@ const StarryBackground = () => {
 
     animate();
 
+    // Cleanup
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 

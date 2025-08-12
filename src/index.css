@@ -580,3 +580,235 @@ html {
     animation: none;
   }
 }
+
+/* Enhanced contact icons */
+.contact-icon {
+  @apply transition-all duration-300 ease-out;
+}
+
+.contact-icon:hover {
+  @apply transform scale-105;
+}
+
+.contact-link {
+  @apply transition-all duration-300 ease-out;
+}
+
+.contact-link:hover {
+  @apply bg-white/10 transform scale-110;
+}
+
+/* Social media icons enhancement */
+.social-link {
+  @apply transition-all duration-300 ease-out;
+}
+
+.social-link:hover {
+  @apply bg-white/10 transform scale-110 shadow-lg;
+}
+
+/* Contact card hover effects */
+.card-enhanced {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-enhanced:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 212, 255, 0.2);
+}
+
+/* Contact row hover animations */
+.contact-row {
+  @apply transition-all duration-300 ease-out;
+}
+
+.contact-row:hover {
+  @apply transform translate-x-1;
+}
+
+/* Icon container animations */
+.icon-container {
+  @apply transition-all duration-300 ease-out;
+}
+
+.icon-container:hover {
+  @apply transform scale-110 rotate-3;
+}
+
+/* Pulse animation for contact icons */
+@keyframes gentle-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.contact-icon-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.contact-icon-pulse:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+
+/* Magnetic effect for contact icons */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magnetic:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Contact row ripple effect */
+.contact-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.contact-ripple:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Enhanced clickable contact icons */
+.contact-ripple {
+  cursor: pointer !important;
+  user-select: none;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-ripple:active {
+  transform: scale(0.98);
+}
+
+.contact-ripple:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Ensure links are clickable */
+.contact-ripple a,
+.contact-ripple a:hover,
+.contact-ripple a:focus {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  z-index: 20;
+  position: relative;
+}
+
+/* Remove any blocking elements */
+.contact-ripple * {
+  pointer-events: auto;
+}
+
+/* Force clickable behavior */
+.contact-ripple {
+  pointer-events: auto !important;
+}
+
+/* Make sure contact icons are clickable */
+.contact-ripple a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Ensure no elements block the click */
+.contact-ripple a * {
+  pointer-events: none;
+}
+
+.contact-ripple a {
+  pointer-events: auto !important;
+}
+
+/* Add visual feedback for clickable areas */
+.contact-ripple:hover {
+  outline: 2px solid rgba(0, 212, 255, 0.3);
+  outline-offset: 2px;
+}
+
+/* Additional clickable improvements */
+.contact-ripple a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+}
+
+.contact-ripple a:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Ensure touch targets are large enough on mobile */
+@media (max-width: 768px) {
+  .contact-ripple a {
+    min-height: 60px;
+    padding: 16px;
+  }
+}
+
+/* Social media icons clickable enhancement */
+.social-link {
+  cursor: pointer !important;
+  user-select: none;
+  position: relative;
+  z-index: 15;
+}
+
+.social-link:active {
+  transform: scale(0.95);
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+/* Ensure social links are fully clickable */
+.social-link {
+  pointer-events: auto !important;
+}
+
+.social-link * {
+  pointer-events: none;
+}
+
+/* Visual feedback for social links */
+.social-link:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.social-link:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Click feedback animation */
+@keyframes click-feedback {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.contact-ripple:active,
+.social-link:active {
+  animation: click-feedback 0.2s ease-out;
+}
