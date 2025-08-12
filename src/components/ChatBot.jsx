@@ -69,13 +69,47 @@ const Nav = ({ lang, setLang }) => {
         >
             <img src={whatsappIcon} alt="WhatsApp" className="h-4 w-4 sm:h-5 sm:w-5" />
         </a>
-        <a
-          href="mailto:info@join-softwave.online"
-          aria-label="Send Email"
-            className="p-1.5 sm:p-2 rounded-lg bg-white/5 social-link text-white"
-        >
+        <div className="relative group">
+          <button
+            aria-label="Email Options"
+            className="p-1.5 sm:p-2 rounded-lg bg-white/5 social-link text-white hover:bg-white/10 transition-colors"
+          >
             <Mail size={16} className="text-brand sm:w-[18px]" />
-        </a>
+          </button>
+          
+          {/* Email Options Dropdown */}
+          <div className="absolute bottom-full right-0 mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 z-50">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-2 shadow-xl min-w-[200px]">
+              <div className="text-xs text-white/70 px-3 py-1 border-b border-white/10 mb-2">
+                {lang === 'ar' ? 'خيارات البريد الإلكتروني' : 'Email Options'}
+              </div>
+              
+              <a
+                href="mailto:info@join-softwave.online"
+                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm text-white"
+              >
+                <Mail size={14} className="text-brand" />
+                <span>{lang === 'ar' ? 'إرسال بريد' : 'Send Email'}</span>
+              </a>
+              
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@join-softwave.online"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm text-white"
+              >
+                <svg className="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>{lang === 'ar' ? 'فتح Gmail' : 'Open Gmail'}</span>
+              </a>
+              
+              <div className="text-xs text-white/50 px-3 py-1 mt-2 border-t border-white/10">
+                info@join-softwave.online
+              </div>
+            </div>
+          </div>
+        </div>
           
           {/* Get Started Button */}
           <a href="#contact" className="hidden sm:inline-flex items-center gap-2 modern-btn text-white text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-3">
@@ -346,8 +380,8 @@ const Hero = ({ lang }) => (
           <a href="#services" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 modern-btn text-white shimmer px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base">
             {lang === 'ar' ? 'خدماتنا' : 'Our Services'} <ArrowRight size={16} className="sm:w-[18px]" />
           </a>
-          <a href="#contact" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/15 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl text-white hover:bg-white/5 transition-all duration-300 hover-lift text-sm sm:text-base">
-            <Zap size={16} className="text-brand sm:w-[18px]" /> {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+          <a href="https://wa.me/201013919821" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/15 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl text-white hover:bg-white/5 transition-all duration-300 hover-lift text-sm sm:text-base">
+            <img src={whatsappIcon} alt="WhatsApp" className="h-4 w-4 sm:h-5 sm:w-5" /> {lang === 'ar' ? 'واتساب' : 'WhatsApp'}
           </a>
         </div>
       </div>
@@ -625,7 +659,7 @@ Reply to: ${data.email}
 
       <div className="mt-8 sm:mt-10 grid lg:grid-cols-2 gap-6 sm:gap-8">
         <div className="card p-4 sm:p-6 md:p-8 card-enhanced">
-           <a href="mailto:info@join-softwave.online?subject=Contact%20from%20JoinSoftWave&body=Hello%20JoinSoftWave%20team,%0D%0A%0D%0AI%20would%20like%20to%20get%20in%20touch%20with%20you.%0D%0A%0D%0ABest%20regards" className="flex items-center justify-between text-super-readable p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple" onClick={() => console.log('Email clicked')}>
+                      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@join-softwave.online" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between text-super-readable p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple" onClick={() => console.log('Email clicked')}>
              <div className="flex items-center gap-3">
                <div className="w-10 h-10 rounded-xl bg-brand/20 text-brand grid place-items-center group-hover:bg-brand/30 group-hover:scale-110 transition-all duration-300 magnetic contact-icon-pulse">
                  <Mail size={18} />
@@ -695,8 +729,13 @@ Reply to: ${data.email}
               <a href="https://wa.me/201013919821?text=Hello%20JoinSoftWave%20team!" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="WhatsApp" onClick={() => console.log('Quick WhatsApp clicked')}>
                 <img src={whatsappIcon} alt="WhatsApp" className="h-4 w-4" />
               </a>
-              <a href="mailto:info@join-softwave.online?subject=Quick%20Contact" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="Email" onClick={() => console.log('Quick Email clicked')}>
+              <a href="mailto:info@join-softwave.online?subject=Quick%20Contact" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="Email" onClick={() => console.log('Quick Email clicked')} title="Send Email">
                 <Mail size={16} className="text-brand" />
+              </a>
+                              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@join-softwave.online" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="Gmail" onClick={() => console.log('Quick Gmail clicked')} title="Open Gmail">
+                <svg className="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
               </a>
               <a href="https://www.linkedin.com/in/islam-badran-39a577225/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link" aria-label="LinkedIn" onClick={() => console.log('LinkedIn clicked')}>
                 <Linkedin size={16} />
