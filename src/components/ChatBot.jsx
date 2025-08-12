@@ -1,95 +1,155 @@
 import React, { useEffect, useState } from "react";
 import {
   Cpu, Home, Layers, Users, Phone, Mail, MapPin, ArrowRight, Zap, MessageSquare,
-  Linkedin, Facebook, Github, Bot, Code2, Brain, CheckCircle2, Sparkles, Shield, MessageCircle, ExternalLink, Star, Quote
+  Linkedin, Facebook, Github, Bot, Code2, Brain, CheckCircle2, Sparkles, Shield, MessageCircle, ExternalLink, Star, Quote, Menu, X
 } from "lucide-react";
 import ParticleEffect from "./ParticleEffect";
 import StarryBackground from "./StarryBackground";
 import logo from "./images/logo.jpg";
 import whatsappIcon from "./images/whatsapp.png";
 
-const Nav = ({ lang, setLang }) => (
-  <nav className="sticky top-0 z-50 backdrop-blur-md bg-primary/80 border-b border-white/10">
-    <div className="container h-16 flex items-center justify-between">
-             <div className="flex items-center gap-3">
-         <img src={logo} alt="JoinSoftWave Logo" className="h-10 w-10 rounded-full object-cover glow" />
-                   <div className="leading-tight">
-            <div className="font-semibold text-white text-lg">Join<span className="text-gradient">SoftWave</span></div>
+const Nav = ({ lang, setLang }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('nav')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
+  return (
+    <nav className="sticky top-0 z-50 backdrop-blur-md bg-primary/80 border-b border-white/10">
+      <div className="container h-16 flex items-center justify-between px-4 sm:px-6">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <img src={logo} alt="JoinSoftWave Logo" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover glow" />
+          <div className="leading-tight">
+            <div className="font-semibold text-white text-base sm:text-lg">Join<span className="text-gradient">SoftWave</span></div>
           </div>
-       </div>
-
-      <ul className="hidden md:flex items-center gap-8 text-white/90">
-        <li><a className="hover:text-white transition-colors duration-300" href="#home">{lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
-        <li><a className="hover:text-white transition-colors duration-300" href="#services">{lang === 'ar' ? 'الخدمات' : 'Services'}</a></li>
-        <li><a className="hover:text-white transition-colors duration-300" href="#projects">{lang === 'ar' ? 'الأعمال' : 'Projects'}</a></li>
-        <li><a className="hover:text-white transition-colors duration-300" href="#reviews">{lang === 'ar' ? 'التقييمات' : 'Reviews'}</a></li>
-        <li><a className="hover:text-white transition-colors duration-300" href="#about">{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
-        <li><a className="hover:text-white transition-colors duration-300" href="#team">{lang === 'ar' ? 'الفريق' : 'Team'}</a></li>
-        <li><a className="hover:text-white transition-colors duration-300" href="#contact">{lang === 'ar' ? 'تواصل' : 'Contact'}</a></li>
-      </ul>
-
-      <div className="flex items-center gap-3">
-        <div className="hidden md:flex items-center bg-white/5 rounded-xl overflow-hidden">
-          <button onClick={() => setLang('en')} className={`px-3 py-1 text-sm ${lang==='en' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>EN</button>
-          <button onClick={() => setLang('ar')} className={`px-3 py-1 text-sm ${lang==='ar' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>AR</button>
         </div>
-        <a
-          href="https://wa.me/201013919821"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="WhatsApp"
-          className="p-2 rounded-lg bg-white/5 social-link"
-        >
-          <img src={whatsappIcon} alt="WhatsApp" className="h-5 w-5" />
-        </a>
-        <a
-          href="mailto:info@join-softwave.online"
-          aria-label="Send Email"
-          className="p-2 rounded-lg bg-white/5 social-link text-white"
-        >
-          <Mail size={18} className="text-brand" />
-        </a>
-      <a href="#contact" className="hidden md:inline-flex items-center gap-2 modern-btn text-white">
-          {lang === 'ar' ? 'ابدأ الآن' : 'Get Started'}
-      </a>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden lg:flex items-center gap-6 xl:gap-8 text-white/90">
+          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#home">{lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
+          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#services">{lang === 'ar' ? 'الخدمات' : 'Services'}</a></li>
+          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#projects">{lang === 'ar' ? 'الأعمال' : 'Projects'}</a></li>
+          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#reviews">{lang === 'ar' ? 'التقييمات' : 'Reviews'}</a></li>
+          <li><a className="hidden xl:block hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#about">{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
+          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#contact">{lang === 'ar' ? 'تواصل' : 'Contact'}</a></li>
+        </ul>
+
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Language Switcher */}
+          <div className="hidden sm:flex items-center bg-white/5 rounded-xl overflow-hidden">
+            <button onClick={() => setLang('en')} className={`px-2 sm:px-3 py-1 text-xs sm:text-sm ${lang==='en' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>EN</button>
+            <button onClick={() => setLang('ar')} className={`px-2 sm:px-3 py-1 text-xs sm:text-sm ${lang==='ar' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>AR</button>
+          </div>
+          
+          {/* Social Links */}
+          <a
+            href="https://wa.me/201013919821"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="p-1.5 sm:p-2 rounded-lg bg-white/5 social-link"
+          >
+            <img src={whatsappIcon} alt="WhatsApp" className="h-4 w-4 sm:h-5 sm:w-5" />
+          </a>
+          <a
+            href="mailto:info@join-softwave.online"
+            aria-label="Send Email"
+            className="p-1.5 sm:p-2 rounded-lg bg-white/5 social-link text-white"
+          >
+            <Mail size={16} className="text-brand sm:w-[18px]" />
+          </a>
+          
+          {/* Get Started Button */}
+          <a href="#contact" className="hidden sm:inline-flex items-center gap-2 modern-btn text-white text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-3">
+            {lang === 'ar' ? 'ابدأ الآن' : 'Get Started'}
+          </a>
+          
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 rounded-lg bg-white/5 text-white hover:bg-white/10 transition-colors"
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
-    </div>
-  </nav>
-);
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-primary/95 backdrop-blur-md border-t border-white/10">
+          <div className="container px-4 py-4">
+            <ul className="space-y-3 text-white/90">
+              <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#home" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
+              <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#services" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'الخدمات' : 'Services'}</a></li>
+              <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#projects" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'الأعمال' : 'Projects'}</a></li>
+              <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#reviews" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'التقييمات' : 'Reviews'}</a></li>
+              <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#about" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
+              <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#contact" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'تواصل' : 'Contact'}</a></li>
+            </ul>
+            
+            {/* Mobile Language Switcher */}
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="flex items-center justify-center bg-white/5 rounded-xl overflow-hidden w-fit mx-auto">
+                <button onClick={() => setLang('en')} className={`px-4 py-2 text-sm ${lang==='en' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>EN</button>
+                <button onClick={() => setLang('ar')} className={`px-4 py-2 text-sm ${lang==='ar' ? 'bg-[--brand] text-white' : 'text-white/80'}`}>AR</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
 
 const ProjectCard = ({ image, title, description, tags = [], link = "#" }) => (
-  <div className="card p-4 overflow-hidden hover-lift shimmer">
+  <div className="card p-3 sm:p-4 overflow-hidden hover-lift shimmer">
     <div className="relative rounded-2xl overflow-hidden bg-white/5">
-      <img src={image} alt={title} className="w-full h-48 object-contain bg-white/5" />
-      <a href={link} target="_blank" rel="noopener noreferrer" className="absolute top-3 right-3 p-2 rounded-xl bg-black/30 hover:bg-black/50 transition-colors">
-        <ExternalLink size={16} className="text-brand" />
+      <img src={image} alt={title} className="w-full h-32 sm:h-40 md:h-48 object-contain bg-white/5" />
+      <a href={link} target="_blank" rel="noopener noreferrer" className="absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-xl bg-black/30 hover:bg-black/50 transition-colors">
+        <ExternalLink size={14} className="text-brand sm:w-[16px]" />
       </a>
     </div>
-    <div className="p-4">
-      <h3 className="text-xl font-semibold text-white">{title}</h3>
-      {description && <p className="text-textDim mt-2 text-sm">{description}</p>}
+    <div className="p-3 sm:p-4">
+      <h3 className="text-lg sm:text-xl font-semibold text-white">{title}</h3>
+      {description && <p className="text-textDim mt-2 text-xs sm:text-sm">{description}</p>}
       {tags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-2 sm:mt-3 flex flex-wrap gap-1.5 sm:gap-2">
           {tags.map((tag, i) => (
-            <span key={i} className="px-3 py-1 text-xs rounded-full bg-white/5 border border-white/10 text-white/90">{tag}</span>
+            <span key={i} className="px-2 sm:px-3 py-1 text-xs rounded-full bg-white/5 border border-white/10 text-white/90">{tag}</span>
           ))}
         </div>
       )}
     </div>
   </div>
-);
+ );
 
 const Projects = ({ lang }) => (
-  <section id="projects" className="py-20 md:py-24">
-    <div className="container">
-      <h2 className="text-center text-white text-5xl md:text-6xl font-extrabold">
+  <section id="projects" className="py-16 sm:py-20 md:py-24">
+    <div className="container px-4 sm:px-6">
+      <h2 className="text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
         {lang === 'ar' ? (<>
           أحدث <span className="text-gradient">مشاريعنا</span>
         </>) : (<>
           Our <span className="text-gradient">Recent Projects</span>
         </>)}
       </h2>
-      <p className="mt-4 text-center text-white max-w-3xl mx-auto">
+      <p className="mt-3 sm:mt-4 text-center text-white max-w-3xl mx-auto px-4 text-sm sm:text-base md:text-lg">
         {lang === 'ar' ? 'مختارات من أعمالٍ حقيقية صنعت نتائج ملموسة لعملائنا.' : 'A glimpse of the products and platforms we have recently shipped for clients worldwide.'}
       </p>
 
@@ -170,7 +230,7 @@ const Projects = ({ lang }) => (
         ];
 
         return (
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-10 md:mt-12 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p, i) => (
               <ProjectCard key={i} image={p.image} title={p.title} description={p.description} tags={p.tags} link={p.link} />
             ))}
@@ -182,27 +242,27 @@ const Projects = ({ lang }) => (
 );
 
 const ReviewCard = ({ name, quote, quoteImage }) => (
-  <div className="card p-7 hover-lift shimmer glow-soft">
-    <div className="flex items-center gap-3">
-      <div className="w-10 h-10 rounded-xl bg-gradient-brand grid place-items-center text-white">
-        <Quote size={16} />
+  <div className="card p-4 sm:p-6 md:p-7 hover-lift shimmer glow-soft">
+    <div className="flex items-center gap-2 sm:gap-3">
+      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-brand grid place-items-center text-white">
+        <Quote size={14} className="sm:w-[16px]" />
       </div>
       <div>
-        <div className="font-semibold text-white">{name}</div>
+        <div className="font-semibold text-white text-sm sm:text-base">{name}</div>
       </div>
     </div>
-    <div className="mt-4">
+    <div className="mt-3 sm:mt-4">
       {quoteImage ? (
         <img src={quoteImage} alt="Client feedback" className="rounded-xl w-full object-contain bg-white/5 border border-white/10" />
       ) : (
-        <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-textDim whitespace-pre-line">
+        <div className="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-4 text-textDim whitespace-pre-line text-sm sm:text-base">
           {quote}
         </div>
       )}
     </div>
-    <div className="mt-4 flex items-center gap-1">
+    <div className="mt-3 sm:mt-4 flex items-center gap-1">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} size={18} className="text-brand neon-glow" />
+        <Star key={i} size={16} className="text-brand neon-glow sm:w-[18px]" />
       ))}
     </div>
   </div>
@@ -255,17 +315,17 @@ const Reviews = ({ lang }) => (
 );
 
 const Stat = ({ value, label }) => (
-  <div className="card p-8 text-center float-animation">
-    <div className="text-4xl font-extrabold text-gradient">{value}</div>
-    <div className="mt-2 text-textDim">{label}</div>
+  <div className="card p-4 sm:p-6 md:p-8 text-center float-animation">
+    <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gradient">{value}</div>
+    <div className="mt-1 sm:mt-2 text-textDim text-xs sm:text-sm md:text-base leading-tight">{label}</div>
   </div>
 );
 
 const Hero = ({ lang }) => (
   <section id="home" className="relative overflow-hidden bg-hero-radial">
-    <div className="container py-16 md:py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <h1 className="mt-5 text-white font-extrabold leading-tight text-[44px] md:text-[72px]">
+    <div className="container py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
+      <div className="mx-auto max-w-4xl text-center">
+        <h1 className="mt-5 text-white font-extrabold leading-tight text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px] xl:text-[72px]">
           {lang === 'ar' ? 'نبني المستقبل' : 'Building the Future'}
           <br/>
           {lang === 'ar' ? <span className="block text-gradient">بالبرمجيات الذكية</span> : <>
@@ -274,23 +334,23 @@ const Hero = ({ lang }) => (
           </>}
         </h1>
 
-        <p className="mt-5 text-lg md:text-xl text-textDim">
+        <p className="mt-4 sm:mt-5 text-base sm:text-lg md:text-xl text-textDim max-w-3xl mx-auto px-4">
           {lang === 'ar'
             ? 'نحوّل أفكارك إلى منتجات ذكية وجاهزة للنمو — بدقة وسرعة وأداء يعتمد عليه.'
             : 'We transform complex challenges into elegant, high-performance applications powered by cutting-edge AI.'}
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a href="#services" className="inline-flex items-center gap-2 modern-btn text-white shimmer">
-            {lang === 'ar' ? 'خدماتنا' : 'Our Services'} <ArrowRight size={18} />
+        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
+          <a href="#services" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 modern-btn text-white shimmer px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base">
+            {lang === 'ar' ? 'خدماتنا' : 'Our Services'} <ArrowRight size={16} className="sm:w-[18px]" />
           </a>
-          <a href="#contact" className="inline-flex items-center gap-2 border border-white/15 px-6 py-3 rounded-2xl text-white hover:bg-white/5 transition-all duration-300 hover-lift">
-            <Zap size={18} className="text-brand" /> {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+          <a href="#contact" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/15 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl text-white hover:bg-white/5 transition-all duration-300 hover-lift text-sm sm:text-base">
+            <Zap size={16} className="text-brand sm:w-[18px]" /> {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
           </a>
         </div>
       </div>
 
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
+      <div className="mt-10 sm:mt-12 md:mt-14 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
         <Stat value="200+" label={lang === 'ar' ? 'نماذج ذكاء اصطناعي منشورة' : 'AI Models Deployed'} />
         <Stat value="99%" label={lang === 'ar' ? 'احتفاظ العملاء' : 'Client Retention'} />
         <Stat value="1M+" label={lang === 'ar' ? 'عدد المستخدمين' : 'Users Served'} />
@@ -300,13 +360,13 @@ const Hero = ({ lang }) => (
 );
 
 const ServiceCard = ({ icon, title, bullets }) => (
-  <div className="card p-8 transition-all duration-300 hover-lift shimmer">
-    <div className="w-14 h-14 rounded-2xl bg-brand/20 text-brand grid place-items-center mb-6 glow magnetic">{icon}</div>
-    <h3 className="text-2xl font-semibold text-white mb-3">{title}</h3>
-    <ul className="space-y-3 text-textDim">
+  <div className="card p-4 sm:p-6 md:p-8 transition-all duration-300 hover-lift shimmer">
+    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-2xl bg-brand/20 text-brand grid place-items-center mb-4 sm:mb-6 glow magnetic">{icon}</div>
+    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 sm:mb-3">{title}</h3>
+    <ul className="space-y-2 sm:space-y-3 text-textDim text-sm sm:text-base">
       {bullets.map((b, i) => (
         <li key={i} className="flex items-start gap-2">
-          <CheckCircle2 size={18} className="text-brand mt-0.5" />
+          <CheckCircle2 size={16} className="text-brand mt-0.5 sm:w-[18px]" />
           <span>{b}</span>
         </li>
       ))}
@@ -315,20 +375,20 @@ const ServiceCard = ({ icon, title, bullets }) => (
 );
 
 const Services = ({ lang }) => (
-  <section id="services" className="py-20 md:py-24 bg-primary2/60">
-    <div className="container">
-      <h2 className="text-center text-white text-5xl md:text-6xl font-extrabold">
+  <section id="services" className="py-16 sm:py-20 md:py-24 bg-primary2/60">
+    <div className="container px-4 sm:px-6">
+      <h2 className="text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
         {lang === 'ar' ? (<>
           حلول <span className="text-gradient">تصنع الفارق</span>
         </>) : (<>
           Our <span className="text-gradient">Services</span>
         </>)}
       </h2>
-      <p className="mt-4 text-center text-white font-semibold max-w-3xl mx-auto">
+      <p className="mt-3 sm:mt-4 text-center text-white font-semibold max-w-3xl mx-auto px-4 text-sm sm:text-base md:text-lg">
         {lang === 'ar' ? 'من الفكرة إلى الإطلاق: نبتكر ونبني ونُطلق حلولًا رقمية سريعة وآمنة وقابلة للتوسع.' : 'We provide a complete suite of software and AI services to power your business’s growth.'}
       </p>
 
-             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 sm:mt-10 md:mt-12 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
          <ServiceCard
            icon={<Brain />}
            title="AI Development"
@@ -375,46 +435,46 @@ const Services = ({ lang }) => (
 );
 
 const AboutTile = ({ icon, title, text }) => (
-  <div className="card p-6 md:p-7 transition-all duration-300 hover-lift">
-    <div className="w-12 h-12 rounded-xl bg-brand/20 text-brand grid place-items-center mb-4 glow magnetic">{icon}</div>
-    <div className="text-white font-semibold text-xl mb-2">{title}</div>
-    <div className="text-textDim">{text}</div>
+  <div className="card p-4 sm:p-6 md:p-7 transition-all duration-300 hover-lift">
+    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/20 text-brand grid place-items-center mb-3 sm:mb-4 glow magnetic">{icon}</div>
+    <div className="text-white font-semibold text-lg sm:text-xl mb-2">{title}</div>
+    <div className="text-textDim text-sm sm:text-base">{text}</div>
   </div>
 );
 
 const About = ({ lang }) => (
-  <section id="about" className="py-20 md:py-24">
-    <div className="container">
-             <h2 className="text-white text-6xl font-extrabold">
-         {lang === 'ar' ? 'عن ' : 'About '}<span className="text-gradient">SoftWave</span>
-       </h2>
+  <section id="about" className="py-16 sm:py-20 md:py-24">
+    <div className="container px-4 sm:px-6">
+      <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
+        {lang === 'ar' ? 'عن ' : 'About '}<span className="text-gradient">SoftWave</span>
+      </h2>
 
-      <div className="grid md:grid-cols-[1.2fr,1fr] gap-8 mt-8">
-        <div className="card p-8 bg-white/5">
-          <p className="text-textDim text-lg leading-8">
+      <div className="grid lg:grid-cols-[1.2fr,1fr] gap-6 sm:gap-8 mt-6 sm:mt-8">
+        <div className="card p-4 sm:p-6 md:p-8 bg-white/5">
+          <p className="text-textDim text-sm sm:text-base md:text-lg leading-6 sm:leading-8">
             {lang === 'ar'
               ? 'تأسست Join SoftWave على مبدأ أن البرمجيات الذكية يمكنها حل أعقد المشكلات. نُبدع حلول برمجية وذكاء اصطناعي مخصّصة تعزّز الكفاءة والابتكار وتحقق ميزة تنافسية.'
               : "Join SoftWave was founded on the principle that intelligent software can solve the world's most complex problems. We specialize in creating custom software and AI solutions that drive efficiency, foster innovation, and create a competitive advantage."}
           </p>
-          <p className="text-textDim text-lg leading-8 mt-4">
+          <p className="text-textDim text-sm sm:text-base md:text-lg leading-6 sm:leading-8 mt-3 sm:mt-4">
             {lang === 'ar'
               ? 'يجمع نهجنا بين خبرة تقنية عميقة وعملية تعاونية وشفافة لضمان تقديم نتائج أعمال حقيقية، لا مجرد كود.'
               : 'Our approach combines deep technical expertise with a collaborative, transparent process, ensuring we deliver not just code, but real business outcomes.'}
           </p>
 
-                     <div className="mt-8 grid sm:grid-cols-2 gap-6">
-             <div className="card p-6 text-center float-animation" style={{animationDelay: '0.2s'}}>
-               <div className="text-3xl font-extrabold text-gradient">7+</div>
-               <div className="text-textDim mt-1">Years of AI Expertise</div>
-             </div>
-             <div className="card p-6 text-center float-animation" style={{animationDelay: '0.4s'}}>
-               <div className="text-3xl font-extrabold text-gradient">50+</div>
-               <div className="text-textDim mt-1">Global Experts</div>
-             </div>
-           </div>
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.2s'}}>
+              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">7+</div>
+              <div className="text-textDim mt-1 text-xs sm:text-sm">Years of AI Expertise</div>
+            </div>
+            <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.4s'}}>
+              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">50+</div>
+              <div className="text-textDim mt-1 text-xs sm:text-sm">Global Experts</div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-4 sm:gap-6">
           <AboutTile icon={<Sparkles />} title="Innovation" text="We explore emerging AI and software trends to deliver future-proof solutions." />
           <AboutTile icon={<Users />} title="Partnership" text="We succeed when you succeed. We act as an extension of your team." />
           <AboutTile icon={<CheckCircle2 />} title="Quality" text="Excellence ensures robust, secure, high-performance applications." />
@@ -425,37 +485,9 @@ const About = ({ lang }) => (
   </section>
 );
 
-const TeamCard = ({ name, role }) => (
-  <div className="card p-8 text-center transition-all duration-300 hover:scale-105">
-    <div className="mx-auto w-40 h-40 rounded-full border-4 border-brand bg-white/5 mb-6 glow" />
-    <div className="text-white text-2xl font-semibold">{name}</div>
-    <div className="text-gradient font-medium mt-1">{role}</div>
-    <p className="text-textDim mt-3">Expert in building secure, scalable, user-friendly AI solutions.</p>
-         <div className="mt-5 flex justify-center gap-3">
-       <a className="p-2 rounded-lg bg-white/5 social-link" href="https://www.linkedin.com/in/islam-badran-39a577225/" target="_blank" rel="noopener noreferrer"><Linkedin size={18}/></a>
-        <a className="p-2 rounded-lg bg-white/5 social-link" href="https://www.facebook.com/islam.badran.77" target="_blank" rel="noopener noreferrer"><Facebook size={18}/></a>
-       <a className="p-2 rounded-lg bg-white/5 social-link" href="https://github.com/islam302/" target="_blank" rel="noopener noreferrer"><Github size={18}/></a>
-       <a className="p-2 rounded-lg bg-white/5 social-link" href="https://wa.me/201013919821" target="_blank" rel="noopener noreferrer"><MessageCircle size={18}/></a>
-     </div>
-  </div>
-);
 
-const Team = () => (
-  <section id="team" className="py-20 md:py-24 bg-primary2/60">
-    <div className="container">
-             <h2 className="text-center text-white text-6xl font-extrabold">
-         Meet the <span className="text-gradient">Architects</span>
-       </h2>
-      <p className="text-center text-textDim mt-3">The brilliant minds turning complex algorithms into real-world impact.</p>
 
-             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-         <TeamCard name="Islam Badran" role="Founder & Lead Developer" />
-         <TeamCard name="JoinSoftWave Team" role="AI & Security Experts" />
-         <TeamCard name="Development Team" role="Software Engineers" />
-       </div>
-    </div>
-  </section>
-);
+
 
 const Contact = ({ lang }) => (
   <section id="contact" className="py-20 md:py-24">
@@ -467,8 +499,8 @@ const Contact = ({ lang }) => (
 
       {/* Quick icons removed here to reduce duplication; consolidated inside the card below */}
 
-      <div className="mt-10 grid lg:grid-cols-2 gap-8">
-                 <div className="card p-8 card-enhanced">
+      <div className="mt-8 sm:mt-10 grid lg:grid-cols-2 gap-6 sm:gap-8">
+        <div className="card p-4 sm:p-6 md:p-8 card-enhanced">
            <div className="flex items-center justify-between text-super-readable">
              <div className="flex items-center gap-3">
                <Mail className="text-brand" /> <span>info@join-softwave.online</span>
@@ -522,7 +554,7 @@ const Contact = ({ lang }) => (
            </div>
          </div>
 
-        <form className="card p-8">
+        <form className="card p-4 sm:p-6 md:p-8">
           <div className="text-white text-2xl font-semibold mb-4 flex items-center gap-2">
             <MessageSquare className="text-[--brand]" /> {lang === 'ar' ? 'أرسل رسالة' : 'Send a Message'}
           </div>
@@ -543,8 +575,8 @@ const Contact = ({ lang }) => (
 
 const Footer = ({ lang }) => (
   <footer className="border-t border-white/10 bg-primary/80">
-    <div className="container py-14">
-      <div className="grid md:grid-cols-4 gap-10">
+    <div className="container py-8 sm:py-10 md:py-14 px-4 sm:px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
                  <div>
            <div className="flex items-center gap-2">
              <img src={logo} alt="JoinSoftWave Logo" className="h-8 w-8 rounded-full object-cover" />
@@ -584,22 +616,41 @@ const Footer = ({ lang }) => (
          </div>
       </div>
 
-             <div className="mt-10 pt-6 text-white border-t border-white/10 text-sm flex flex-wrap gap-4 justify-between">
-         <span>{lang === 'ar' ? `© ${new Date().getFullYear()} جون سوفت ويف. جميع الحقوق محفوظة.` : `© ${new Date().getFullYear()} Join SoftWave. All rights reserved.`}</span>
-         <div className="flex gap-6">
-           <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
-           <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}</a>
-         </div>
-       </div>
+      <div className="mt-8 sm:mt-10 pt-4 sm:pt-6 text-white border-t border-white/10 text-xs sm:text-sm flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between items-center">
+        <span>{lang === 'ar' ? `© ${new Date().getFullYear()} جون سوفت ويف. جميع الحقوق محفوظة.` : `© ${new Date().getFullYear()} Join SoftWave. All rights reserved.`}</span>
+        <div className="flex gap-4 sm:gap-6">
+          <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
+          <a href="#" className="hover:text-white transition-colors duration-300">{lang === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}</a>
+        </div>
+      </div>
     </div>
   </footer>
 );
 
 export default function App() {
   const [lang, setLang] = useState('en');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   useEffect(() => {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   }, [lang]);
+
+  // Scroll to top functionality
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="min-h-screen text-white bg-primary relative">
@@ -611,9 +662,21 @@ export default function App() {
       <Projects lang={lang} />
       <Reviews lang={lang} />
       <About lang={lang} />
-      <Team />
       <Contact lang={lang} />
       <Footer lang={lang} />
+      
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-brand/20 hover:bg-brand/30 text-brand backdrop-blur-md border border-brand/30 transition-all duration-300 hover:scale-110 shadow-lg touch-friendly"
+          aria-label="Scroll to top"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
