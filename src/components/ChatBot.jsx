@@ -387,7 +387,7 @@ const Hero = ({ lang }) => (
       </div>
 
       <div className="mt-10 sm:mt-12 md:mt-14 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
-        <Stat value="200+" label={lang === 'ar' ? 'نماذج ذكاء اصطناعي منشورة' : 'AI Models Deployed'} />
+        <Stat value="10+" label={lang === 'ar' ? 'نماذج ذكاء اصطناعي منشورة' : 'AI Models Deployed'} />
         <Stat value="99%" label={lang === 'ar' ? 'احتفاظ العملاء' : 'Client Retention'} />
         <Stat value="1M+" label={lang === 'ar' ? 'عدد المستخدمين' : 'Users Served'} />
       </div>
