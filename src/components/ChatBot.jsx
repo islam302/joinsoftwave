@@ -191,6 +191,14 @@ const Projects = ({ lang }) => (
 
       {(() => {
         const projects = [
+
+          {
+            title: "GetFact",
+            image: `${process.env.PUBLIC_URL}/projects/getfact.png`,
+            link: "https://fact-check-nine.vercel.app/",
+            tags: ["React", "HTML", "CSS", "JS", "Bootstrap"],
+          },
+
           {
             title: "OmniFood",
             image: `${process.env.PUBLIC_URL}/projects/omnifood.png`,
@@ -389,7 +397,7 @@ const Hero = ({ lang }) => (
       <div className="mt-10 sm:mt-12 md:mt-14 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
         <Stat value="10+" label={lang === 'ar' ? 'نماذج ذكاء اصطناعي منشورة' : 'AI Models Deployed'} />
         <Stat value="99%" label={lang === 'ar' ? 'احتفاظ العملاء' : 'Client Retention'} />
-        <Stat value="1M+" label={lang === 'ar' ? 'عدد المستخدمين' : 'Users Served'} />
+        <Stat value="1k+" label={lang === 'ar' ? 'عدد المستخدمين' : 'Users Served'} />
       </div>
     </div>
   </section>
@@ -500,11 +508,11 @@ const About = ({ lang }) => (
 
           <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.2s'}}>
-              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">7+</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">2+</div>
               <div className="text-textDim mt-1 text-xs sm:text-sm">Years of AI Expertise</div>
              </div>
             <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.4s'}}>
-              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">50+</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">5+</div>
               <div className="text-textDim mt-1 text-xs sm:text-sm">Global Experts</div>
              </div>
            </div>
