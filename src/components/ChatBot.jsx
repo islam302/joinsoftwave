@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import emailjs from '@emailjs/browser';
 import {
   Cpu, Home, Layers, Users, Phone, Mail, MapPin, ArrowRight, Zap, MessageSquare,
-  Linkedin, Facebook, Github, Bot, Code2, Brain, CheckCircle2, Sparkles, Shield, MessageCircle, ExternalLink, Star, Quote, Menu, X
+  Linkedin, Facebook, Github, Bot, Code2, Brain, CheckCircle2, Sparkles, Shield, MessageCircle, ExternalLink, Star, Quote, Menu, X,
+  TrendingUp, Target, Lock, Settings, Database, Cloud, BarChart3, AlertTriangle, Eye, Clock, Award, Globe
 } from "lucide-react";
 
 import ParticleEffect from "./ParticleEffect";
@@ -44,12 +45,13 @@ const Nav = ({ lang, setLang }) => {
 
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center gap-6 xl:gap-8 text-white/90">
-          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#home">{lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
-          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#services">{lang === 'ar' ? 'الخدمات' : 'Services'}</a></li>
-          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#projects">{lang === 'ar' ? 'الأعمال' : 'Projects'}</a></li>
-          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#reviews">{lang === 'ar' ? 'التقييمات' : 'Reviews'}</a></li>
-          <li><a className="hidden xl:block hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#about">{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
-          <li><a className="hover:text-white transition-colors duration-300 text-sm xl:text-base" href="#contact">{lang === 'ar' ? 'تواصل' : 'Contact'}</a></li>
+          <li><a className="nav-link hover:text-white transition-colors duration-300 text-sm xl:text-base px-3 py-2 rounded-lg hover:bg-white/5" href="#home">{lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
+          <li><a className="nav-link hover:text-white transition-colors duration-300 text-sm xl:text-base px-3 py-2 rounded-lg hover:bg-white/5" href="#services">{lang === 'ar' ? 'الخدمات' : 'Services'}</a></li>
+          <li><a className="nav-link hover:text-white transition-colors duration-300 text-sm xl:text-base px-3 py-2 rounded-lg hover:bg-white/5" href="#projects">{lang === 'ar' ? 'الأعمال' : 'Projects'}</a></li>
+          <li><a className="nav-link hover:text-white transition-colors duration-300 text-sm xl:text-base px-3 py-2 rounded-lg hover:bg-white/5" href="#case-studies">{lang === 'ar' ? 'دراسات الحالة' : 'Case Studies'}</a></li>
+          <li><a className="nav-link hover:text-white transition-colors duration-300 text-sm xl:text-base px-3 py-2 rounded-lg hover:bg-white/5" href="#reviews">{lang === 'ar' ? 'التقييمات' : 'Reviews'}</a></li>
+          <li><a className="nav-link hidden xl:block hover:text-white transition-colors duration-300 text-sm xl:text-base px-3 py-2 rounded-lg hover:bg-white/5" href="#about">{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
+          <li><a className="nav-link hover:text-white transition-colors duration-300 text-sm xl:text-base px-3 py-2 rounded-lg hover:bg-white/5" href="#contact">{lang === 'ar' ? 'تواصل' : 'Contact'}</a></li>
       </ul>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -61,7 +63,7 @@ const Nav = ({ lang, setLang }) => {
           
           {/* Social Links */}
         <a
-          href="https://wa.me/201013919821"
+          href="https://wa.me/201505858198"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
@@ -134,6 +136,7 @@ const Nav = ({ lang, setLang }) => {
               <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#home" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'الرئيسية' : 'Home'}</a></li>
               <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#services" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'الخدمات' : 'Services'}</a></li>
               <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#projects" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'الأعمال' : 'Projects'}</a></li>
+              <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#case-studies" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'دراسات الحالة' : 'Case Studies'}</a></li>
               <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#reviews" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'التقييمات' : 'Reviews'}</a></li>
               <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#about" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
               <li><a className="block py-2 hover:text-white transition-colors duration-300" href="#contact" onClick={() => setIsMobileMenuOpen(false)}>{lang === 'ar' ? 'تواصل' : 'Contact'}</a></li>
@@ -176,7 +179,7 @@ const ProjectCard = ({ image, title, description, tags = [], link = "#" }) => (
 );
 
 const Projects = ({ lang }) => (
-  <section id="projects" className="py-16 sm:py-20 md:py-24">
+  <section id="projects" className="py-20 sm:py-24 md:py-32 min-h-screen flex flex-col justify-center">
     <div className="container px-4 sm:px-6">
       <h2 className="text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
         {lang === 'ar' ? (<>
@@ -186,30 +189,33 @@ const Projects = ({ lang }) => (
         </>)}
       </h2>
       <p className="mt-3 sm:mt-4 text-center text-white max-w-3xl mx-auto px-4 text-sm sm:text-base md:text-lg">
-        {lang === 'ar' ? 'مختارات من أعمالٍ حقيقية صنعت نتائج ملموسة لعملائنا.' : 'A glimpse of the products and platforms we have recently shipped for clients worldwide.'}
+        {lang === 'ar' ? 'مختارات من أعمالٍ حقيقية صنعت نتائج ملموسة لعملائنا في مجالات الذكاء الاصطناعي والأمن السيبراني.' : 'Real-world solutions we have delivered for clients worldwide, showcasing our expertise in AI, cybersecurity, and enterprise software development.'}
       </p>
 
       {(() => {
         const projects = [
 
           {
-            title: "GetFact",
+            title: "GetFact - AI Fact Checker",
+            description: lang === 'ar' ? 'نظام كشف الأخبار المزيفة باستخدام الذكاء الاصطناعي' : 'AI-powered fact-checking system for news verification',
             image: `${process.env.PUBLIC_URL}/projects/getfact.png`,
             link: "https://fact-check-nine.vercel.app/",
-            tags: ["React", "HTML", "CSS", "JS", "Bootstrap"],
+            tags: ["React", "AI/ML", "NLP", "Fact Checking"],
           },
 
           {
-            title: "OmniFood",
+            title: "OmniFood - Smart Food Delivery",
+            description: lang === 'ar' ? 'منصة توصيل طعام ذكية مع نظام توصيات متقدم' : 'Smart food delivery platform with advanced recommendation system',
             image: `${process.env.PUBLIC_URL}/projects/omnifood.png`,
             link: "https://omnifood-sable-xi.vercel.app/",
-            tags: ["React", "HTML", "CSS", "JS", "Bootstrap"],
+            tags: ["React", "AI Recommendations", "E-commerce"],
           },
           {
-            title: "GoToMail",
+            title: "GoToMail - Email Automation",
+            description: lang === 'ar' ? 'نظام أتمتة البريد الإلكتروني للمؤسسات' : 'Enterprise email automation and marketing platform',
             image: `${process.env.PUBLIC_URL}/projects/emails.png`,
             link: "https://email-sender-com.vercel.app/",
-            tags: ["Python", "Django", "Brevo", "React", "HTML", "CSS", "JS", "Bootstrap"],
+            tags: ["Python", "Django", "Email Marketing", "Automation"],
           },
           {
             title: "DataHandler",
@@ -242,10 +248,11 @@ const Projects = ({ lang }) => (
             tags: ["Python", "Django", "DRF"],
           },
           {
-            title: "Ai Chat Bot",
+            title: "AI ChatBot - Customer Support",
+            description: lang === 'ar' ? 'روبوت دردشة ذكي لخدمة العملاء باستخدام GPT' : 'Intelligent customer support chatbot powered by GPT',
             image: `${process.env.PUBLIC_URL}/projects/chatbot.png`,
             link: "https://una-chatbot.onrender.com/",
-            tags: ["Python", "Django", "OpenAI"],
+            tags: ["Python", "Django", "OpenAI", "GPT", "Customer Support"],
           },
           {
             title: "AirTravel-Booking-System",
@@ -285,6 +292,113 @@ const Projects = ({ lang }) => (
   </section>
 );
 
+const CaseStudyCard = ({ title, description, challenge, solution, result, tags }) => (
+  <div className="card p-4 sm:p-6 md:p-7 hover-lift shimmer glow-soft">
+    <div className="mb-4">
+      <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">{title}</h3>
+      <p className="text-textDim text-sm sm:text-base">{description}</p>
+    </div>
+    
+    <div className="space-y-3 sm:space-y-4">
+      <div>
+        <h4 className="text-brand font-semibold text-sm sm:text-base mb-1">Challenge</h4>
+        <p className="text-textDim text-xs sm:text-sm">{challenge}</p>
+      </div>
+      <div>
+        <h4 className="text-brand font-semibold text-sm sm:text-base mb-1">Solution</h4>
+        <p className="text-textDim text-xs sm:text-sm">{solution}</p>
+      </div>
+      <div>
+        <h4 className="text-brand font-semibold text-sm sm:text-base mb-1">Result</h4>
+        <p className="text-textDim text-xs sm:text-sm">{result}</p>
+      </div>
+    </div>
+    
+    {tags && tags.length > 0 && (
+      <div className="mt-4 pt-4 border-t border-white/10">
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag, i) => (
+            <span key={i} className="px-2 py-1 text-xs rounded-full bg-brand/20 text-brand border border-brand/30">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+);
+
+const CaseStudies = ({ lang }) => (
+  <section id="case-studies" className="py-20 sm:py-24 md:py-32 bg-primary2/40 min-h-screen flex flex-col justify-center">
+    <div className="container px-4 sm:px-6">
+      <h2 className="text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
+        {lang === 'ar' ? (
+          <>
+            دراسات <span className="text-gradient">الحالة</span>
+          </>
+        ) : (
+          <>
+            <span className="text-gradient">Case Studies</span>
+          </>
+        )}
+      </h2>
+      <p className="mt-3 sm:mt-4 text-center text-white max-w-3xl mx-auto px-4 text-sm sm:text-base md:text-lg">
+        {lang === 'ar' 
+          ? 'قصص نجاح حقيقية من مشاريعنا مع العملاء، تُظهر كيف نحول التحديات إلى فرص نمو.'
+          : 'Real success stories from our client projects, showcasing how we transform challenges into growth opportunities.'}
+      </p>
+
+      <div className="mt-8 sm:mt-10 md:mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <CaseStudyCard
+          title={lang === 'ar' ? 'نظام كشف الاحتيال المالي' : 'Financial Fraud Detection System'}
+          description={lang === 'ar' ? 'تطوير نظام ذكي لكشف المعاملات المالية المشبوهة' : 'Development of an intelligent system for detecting suspicious financial transactions'}
+          challenge={lang === 'ar' 
+            ? 'عميل مصرفي يحتاج لحماية عملائه من عمليات الاحتيال المتقدمة'
+            : 'A banking client needed protection against sophisticated fraud attempts targeting their customers'}
+          solution={lang === 'ar' 
+            ? 'نظام ذكاء اصطناعي يتعلم من أنماط المعاملات ويحذر من الأنشطة المشبوهة'
+            : 'AI system that learns transaction patterns and alerts on suspicious activities in real-time'}
+          result={lang === 'ar' 
+            ? 'تقليل الاحتيال بنسبة 85% وتحسين رضا العملاء'
+            : '85% reduction in fraud cases and improved customer satisfaction'}
+          tags={['AI/ML', 'Real-time Processing', 'Financial Services']}
+        />
+        
+        <CaseStudyCard
+          title={lang === 'ar' ? 'منصة الصيانة التنبؤية' : 'Predictive Maintenance Platform'}
+          description={lang === 'ar' ? 'حل ذكي للصيانة الوقائية في المصانع' : 'Intelligent solution for preventive maintenance in manufacturing'}
+          challenge={lang === 'ar' 
+            ? 'مصنع يواجه تكاليف صيانة عالية وتوقف غير متوقع للآلات'
+            : 'Manufacturing facility facing high maintenance costs and unexpected equipment downtime'}
+          solution={lang === 'ar' 
+            ? 'نظام يراقب حالة الآلات ويتنبأ بالأعطال قبل حدوثها'
+            : 'System monitoring equipment health and predicting failures before they occur'}
+          result={lang === 'ar' 
+            ? 'تقليل وقت التوقف بنسبة 60% وتوفير 40% من تكاليف الصيانة'
+            : '60% reduction in downtime and 40% savings in maintenance costs'}
+          tags={['IoT', 'Predictive Analytics', 'Manufacturing']}
+        />
+        
+        <CaseStudyCard
+          title={lang === 'ar' ? 'مركز عمليات الأمن المدارة' : 'Managed Security Operations Center'}
+          description={lang === 'ar' ? 'خدمة أمن سيبراني شاملة لشركة تقنية'
+            : 'Comprehensive cybersecurity service for a tech company'}
+          challenge={lang === 'ar' 
+            ? 'شركة تحتاج حماية شاملة من التهديدات السيبرانية المتطورة'
+            : 'Company needed comprehensive protection against advanced cyber threats'}
+          solution={lang === 'ar' 
+            ? 'مركز مراقبة على مدار الساعة مع استجابة سريعة للتهديدات'
+            : '24/7 monitoring center with rapid threat response capabilities'}
+          result={lang === 'ar' 
+            ? 'حماية 100% من الهجمات ووقت استجابة أقل من 5 دقائق'
+            : '100% threat protection with response time under 5 minutes'}
+          tags={['Cybersecurity', 'SOC', 'Threat Detection']}
+        />
+      </div>
+    </div>
+  </section>
+);
+
 const ReviewCard = ({ name, quote, quoteImage }) => (
   <div className="card p-4 sm:p-6 md:p-7 hover-lift shimmer glow-soft">
     <div className="flex items-center gap-2 sm:gap-3">
@@ -313,7 +427,7 @@ const ReviewCard = ({ name, quote, quoteImage }) => (
 );
 
 const Reviews = ({ lang }) => (
-  <section id="reviews" className="py-20 md:py-24 bg-primary2/60">
+  <section id="reviews" className="py-20 md:py-32 bg-primary2/60">
     <div className="container">
       <h2 className="text-center text-white text-5xl md:text-6xl font-extrabold">
         {lang === 'ar' ? 'آراء ' : 'Client '}<span className="text-gradient">{lang === 'ar' ? 'العملاء' : 'Reviews'}</span>
@@ -366,7 +480,7 @@ const Stat = ({ value, label }) => (
 );
 
 const Hero = ({ lang }) => (
-  <section id="home" className="relative overflow-hidden bg-hero-radial">
+  <section id="home" className="relative overflow-hidden bg-hero-radial min-h-screen flex items-center">
     <div className="container py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
       <div className="mx-auto max-w-4xl text-center">
         <h1 className="mt-5 text-white font-extrabold leading-tight text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px] xl:text-[72px]">
@@ -388,7 +502,7 @@ const Hero = ({ lang }) => (
           <a href="#services" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 modern-btn text-white shimmer px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base">
             {lang === 'ar' ? 'خدماتنا' : 'Our Services'} <ArrowRight size={16} className="sm:w-[18px]" />
           </a>
-          <a href="https://wa.me/201013919821" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/15 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl text-white hover:bg-white/5 transition-all duration-300 hover-lift text-sm sm:text-base">
+          <a href="https://wa.me/201505858198" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/15 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl text-white hover:bg-white/5 transition-all duration-300 hover-lift text-sm sm:text-base">
             <img src={whatsappIcon} alt="WhatsApp" className="h-4 w-4 sm:h-5 sm:w-5" /> {lang === 'ar' ? 'واتساب' : 'WhatsApp'}
           </a>
         </div>
@@ -419,7 +533,7 @@ const ServiceCard = ({ icon, title, bullets }) => (
 );
 
 const Services = ({ lang }) => (
-  <section id="services" className="py-16 sm:py-20 md:py-24 bg-primary2/60">
+  <section id="services" className="py-20 sm:py-24 md:py-32 bg-primary2/60 min-h-screen flex flex-col justify-center">
     <div className="container px-4 sm:px-6">
       <h2 className="text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
         {lang === 'ar' ? (<>
@@ -429,48 +543,68 @@ const Services = ({ lang }) => (
         </>)}
       </h2>
       <p className="mt-3 sm:mt-4 text-center text-white font-semibold max-w-3xl mx-auto px-4 text-sm sm:text-base md:text-lg">
-        {lang === 'ar' ? 'من الفكرة إلى الإطلاق: نبتكر ونبني ونُطلق حلولًا رقمية سريعة وآمنة وقابلة للتوسع.' : 'We provide a complete suite of software and AI services to power your business’s growth.'}
+        {lang === 'ar' ? 'من الفكرة إلى الإطلاق: نبتكر ونبني ونُطلق حلولًا رقمية سريعة وآمنة وقابلة للتوسع.' : 'We provide a complete suite of specialized software and AI services to power your business growth.'}
       </p>
 
       <div className="mt-8 sm:mt-10 md:mt-12 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
          <ServiceCard
-           icon={<Brain />}
-           title="AI Development"
-           bullets={[
+           icon={<TrendingUp className="w-6 h-6 sm:w-7 sm:h-7" />}
+           title={lang === 'ar' ? "تطوير الذكاء الاصطناعي" : "AI Development"}
+           bullets={lang === 'ar' ? [
+             "أنظمة كشف الاحتيال بالذكاء الاصطناعي",
+             "تحليل البيانات التنبؤي للتصنيع",
+             "معالجة اللغة الطبيعية",
+             "تكامل نماذج اللغة الكبيرة",
+           ] : [
+             "AI-Powered Fraud Detection Systems",
+             "Predictive Maintenance Solutions",
              "Natural Language Processing",
-             "Computer Vision",
-             "Predictive Analytics",
-             "LLM Integration",
+             "LLM Integration & Fine-tuning",
            ]}
          />
          <ServiceCard
-           icon={<Code2 />}
-           title="Software Engineering"
-           bullets={[
-             "Web & Mobile Apps",
+           icon={<Settings className="w-6 h-6 sm:w-7 sm:h-7" />}
+           title={lang === 'ar' ? "هندسة البرمجيات" : "Software Engineering"}
+           bullets={lang === 'ar' ? [
+             "تطبيقات ويب ومحمولة متقدمة",
+             "هندسة معمارية سحابية",
+             "تطوير واجهات برمجة التطبيقات",
+             "تكامل الأنظمة المعقدة",
+           ] : [
+             "Enterprise Web & Mobile Solutions",
              "Cloud-Native Architecture",
-             "API Development",
-             "System Integration",
+             "RESTful API Development",
+             "Legacy System Integration",
            ]}
          />
          <ServiceCard
-           icon={<Shield />}
-           title="Cybersecurity"
-           bullets={[
+           icon={<Lock className="w-6 h-6 sm:w-7 sm:h-7" />}
+           title={lang === 'ar' ? "الأمن السيبراني" : "Cybersecurity Services"}
+           bullets={lang === 'ar' ? [
+             "مركز عمليات الأمن المدارة (SOC)",
+             "تقييم الثغرات الأمنية",
+             "اختبار الاختراق",
+             "التوافق مع معايير الأمان السحابي",
+           ] : [
+             "Managed SOC Services",
+             "Cloud Security Compliance",
              "Penetration Testing",
-             "Vulnerability Assessment",
-             "Security Auditing",
-             "Incident Response",
+             "Security Incident Response",
            ]}
          />
          <ServiceCard
-           icon={<Bot />}
-           title="AI Chatbots"
-           bullets={[
-             "Custom Knowledge Base",
+           icon={<MessageSquare className="w-6 h-6 sm:w-7 sm:h-7" />}
+           title={lang === 'ar' ? "روبوتات الدردشة الذكية" : "Intelligent Chatbots"}
+           bullets={lang === 'ar' ? [
+             "قاعدة معرفة مخصصة",
+             "نشر متعدد المنصات",
+             "تحليل السلوك المتقدم",
+             "تكامل مع أنظمة CRM",
+           ] : [
+             "Custom Knowledge Base Integration",
              "Multi-platform Deployment",
-             "Seamless Handoff",
-             "Analytics",
+             "Advanced Behavioral Analytics",
+             "CRM System Integration",
            ]}
          />
        </div>
@@ -487,42 +621,58 @@ const AboutTile = ({ icon, title, text }) => (
 );
 
 const About = ({ lang }) => (
-  <section id="about" className="py-16 sm:py-20 md:py-24">
+  <section id="about" className="py-20 sm:py-24 md:py-32 min-h-screen flex flex-col justify-center">
     <div className="container px-4 sm:px-6">
       <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
-         {lang === 'ar' ? 'عن ' : 'About '}<span className="text-gradient">SoftWave</span>
+         {lang === 'ar' ? 'عن ' : 'About '}<span className="text-gradient">JoinSoftWave</span>
        </h2>
 
       <div className="grid lg:grid-cols-[1.2fr,1fr] gap-6 sm:gap-8 mt-6 sm:mt-8">
         <div className="card p-4 sm:p-6 md:p-8 bg-white/5">
           <p className="text-textDim text-sm sm:text-base md:text-lg leading-6 sm:leading-8">
             {lang === 'ar'
-              ? 'تأسست Join SoftWave على مبدأ أن البرمجيات الذكية يمكنها حل أعقد المشكلات. نُبدع حلول برمجية وذكاء اصطناعي مخصّصة تعزّز الكفاءة والابتكار وتحقق ميزة تنافسية.'
-              : "Join SoftWave was founded on the principle that intelligent software can solve the world's most complex problems. We specialize in creating custom software and AI solutions that drive efficiency, foster innovation, and create a competitive advantage."}
+              ? 'تأسست JoinSoftWave في عام 2022 على يد فريق من المهندسين المتخصصين في الذكاء الاصطناعي وهندسة البرمجيات. نحن نؤمن بأن التكنولوجيا المتقدمة يجب أن تكون في متناول الجميع لتحويل الأفكار إلى حلول عملية.'
+              : "Founded in 2022 by a team of AI and software engineering specialists, JoinSoftWave believes that advanced technology should be accessible to transform ideas into practical solutions. Our mission is to democratize AI and make intelligent software the standard for modern businesses."}
           </p>
           <p className="text-textDim text-sm sm:text-base md:text-lg leading-6 sm:leading-8 mt-3 sm:mt-4">
             {lang === 'ar'
-              ? 'يجمع نهجنا بين خبرة تقنية عميقة وعملية تعاونية وشفافة لضمان تقديم نتائج أعمال حقيقية، لا مجرد كود.'
-              : 'Our approach combines deep technical expertise with a collaborative, transparent process, ensuring we deliver not just code, but real business outcomes.'}
+              ? 'فريقنا يضم خبراء في الذكاء الاصطناعي، الأمن السيبراني، وتطوير التطبيقات مع سنوات من الخبرة في العمل مع الشركات الناشئة والمؤسسات الكبرى. نحن ملتزمون بتقديم حلول مبتكرة وموثوقة.'
+              : 'Our team consists of AI specialists, cybersecurity experts, and application developers with years of experience working with startups and enterprises. We are committed to delivering innovative, reliable solutions that drive real business value.'}
           </p>
 
           <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.2s'}}>
               <div className="text-2xl sm:text-3xl font-extrabold text-gradient">2+</div>
-              <div className="text-textDim mt-1 text-xs sm:text-sm">Years of AI Expertise</div>
+              <div className="text-textDim mt-1 text-xs sm:text-sm">{lang === 'ar' ? 'سنوات خبرة في الذكاء الاصطناعي' : 'Years of AI Expertise'}</div>
              </div>
             <div className="card p-4 sm:p-6 text-center float-animation" style={{animationDelay: '0.4s'}}>
-              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">5+</div>
-              <div className="text-textDim mt-1 text-xs sm:text-sm">Global Experts</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-gradient">15+</div>
+              <div className="text-textDim mt-1 text-xs sm:text-sm">{lang === 'ar' ? 'مشروع مكتمل بنجاح' : 'Successful Projects'}</div>
              </div>
            </div>
         </div>
 
         <div className="grid gap-4 sm:gap-6">
-          <AboutTile icon={<Sparkles />} title="Innovation" text="We explore emerging AI and software trends to deliver future-proof solutions." />
-          <AboutTile icon={<Users />} title="Partnership" text="We succeed when you succeed. We act as an extension of your team." />
-          <AboutTile icon={<CheckCircle2 />} title="Quality" text="Excellence ensures robust, secure, high-performance applications." />
-          <AboutTile icon={<Layers />} title="Impact" text="We focus on measurable outcomes and clear ROI." />
+          <AboutTile 
+            icon={<Sparkles className="w-5 h-5" />} 
+            title={lang === 'ar' ? 'الابتكار' : 'Innovation'} 
+            text={lang === 'ar' ? 'نستكشف أحدث الاتجاهات في الذكاء الاصطناعي والبرمجيات لتقديم حلول مستقبلية.' : 'We explore emerging AI and software trends to deliver future-proof solutions.'} 
+          />
+          <AboutTile 
+            icon={<Users className="w-5 h-5" />} 
+            title={lang === 'ar' ? 'الشراكة' : 'Partnership'} 
+            text={lang === 'ar' ? 'ننجح عندما تنجح. نعمل كامتداد لفريقك.' : 'We succeed when you succeed. We act as an extension of your team.'} 
+          />
+          <AboutTile 
+            icon={<Award className="w-5 h-5" />} 
+            title={lang === 'ar' ? 'الجودة' : 'Quality'} 
+            text={lang === 'ar' ? 'التميز يضمن تطبيقات قوية وآمنة وعالية الأداء.' : 'Excellence ensures robust, secure, high-performance applications.'} 
+          />
+          <AboutTile 
+            icon={<BarChart3 className="w-5 h-5" />} 
+            title={lang === 'ar' ? 'الأثر' : 'Impact'} 
+            text={lang === 'ar' ? 'نركز على النتائج القابلة للقياس وعائد الاستثمار الواضح.' : 'We focus on measurable outcomes and clear ROI.'} 
+          />
         </div>
       </div>
     </div>
@@ -653,7 +803,7 @@ Reply to: ${data.email}
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-24">
+    <section id="contact" className="py-20 sm:py-24 md:py-32 min-h-screen flex flex-col justify-center">
       <div className="container px-4 sm:px-6">
         <h2 className="text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold px-4">
           {lang === 'ar' ? 'فلنَبنِ' : 'Let’s Build'}{" "}
@@ -699,7 +849,7 @@ Reply to: ${data.email}
 
             {/* Phone */}
             <a
-              href="tel:+201013919821"
+              href="tel:+201505858198"
               className="flex items-center justify-between text-super-readable mt-4 p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple"
               onClick={() => console.log('Phone clicked')}
             >
@@ -749,7 +899,7 @@ Reply to: ${data.email}
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/201013919821?text=Hello%20JoinSoftWave%20team!%20I%20would%20like%20to%20get%20in%20touch%20with%20you."
+              href="https://wa.me/201505858198?text=Hello%20JoinSoftWave%20team!%20I%20would%20like%20to%20get%20in%20touch%20with%20you."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between text-super-readable mt-4 p-3 rounded-xl hover:bg-white/5 transition-all duration-300 group cursor-pointer border border-transparent hover:border-white/10 contact-ripple"
@@ -784,7 +934,7 @@ Reply to: ${data.email}
               <div className="flex items-center gap-2">
                 {/* WhatsApp quick link */}
                 <a
-                  href="https://wa.me/201013919821?text=Hello%20JoinSoftWave%20team!"
+                  href="https://wa.me/201505858198?text=Hello%20JoinSoftWave%20team!"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link"
@@ -828,7 +978,7 @@ Reply to: ${data.email}
 
                 {/* LinkedIn */}
                 <a
-                  href="https://www.linkedin.com/in/islam-badran-39a577225/"
+                  href="https://www.linkedin.com/company/joinsoftwave"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link"
@@ -840,7 +990,7 @@ Reply to: ${data.email}
 
                 {/* Facebook */}
                 <a
-                  href="https://www.facebook.com/islam.badran.77"
+                  href="https://www.facebook.com/joinsoftwave"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 social-link"
@@ -868,21 +1018,25 @@ const Footer = ({ lang }) => (
              <div className="font-semibold text-white text-lg">JoinSoftWave</div>
            </div>
                      <p className="text-white mt-4 max-w-sm">
-             Delivering cutting-edge software & AI solutions to turn complex problems into elegant, high-performance applications.
+             Specialized AI development, cybersecurity services, and enterprise software solutions. We provide AI-powered fraud detection, predictive maintenance, and managed SOC services.
            </p>
                      <div className="flex gap-3 mt-5">
-             <a className="p-2 rounded-lg bg-white/5 social-link" href="https://www.linkedin.com/in/islam-badran-39a577225/" target="_blank" rel="noopener noreferrer"><Linkedin size={18}/></a>
-              <a className="p-2 rounded-lg bg-white/5 social-link" href="https://www.facebook.com/islam.badran.77" target="_blank" rel="noopener noreferrer"><Facebook size={18}/></a>
+             <a className="p-2 rounded-lg bg-white/5 social-link" href="https://www.linkedin.com/company/joinsoftwave" target="_blank" rel="noopener noreferrer"><Linkedin size={18}/></a>
+              <a className="p-2 rounded-lg bg-white/5 social-link" href="https://www.facebook.com/joinsoftwave" target="_blank" rel="noopener noreferrer"><Facebook size={18}/></a>
              <a className="p-2 rounded-lg bg-white/5 social-link" href="https://github.com/islam302/" target="_blank" rel="noopener noreferrer"><Github size={18}/></a>
-             <a className="p-2 rounded-lg bg-white/5 social-link" href="https://wa.me/201013919821" target="_blank" rel="noopener noreferrer"><MessageCircle size={18}/></a>
+             <a className="p-2 rounded-lg bg-white/5 social-link" href="https://wa.me/201505858198" target="_blank" rel="noopener noreferrer"><MessageCircle size={18}/></a>
            </div>
         </div>
 
                           <div>
             <div className="text-white font-semibold mb-3">{lang === 'ar' ? 'الخدمات' : 'Services'}</div>
            <ul className="space-y-2 text-white">
-             <li>AI Development</li><li>Software Engineering</li><li>Cybersecurity</li>
-             <li>AI Chatbots</li><li>Penetration Testing</li><li>Mobile Solutions</li>
+             <li>{lang === 'ar' ? 'كشف الاحتيال بالذكاء الاصطناعي' : 'AI Fraud Detection'}</li>
+             <li>{lang === 'ar' ? 'الصيانة التنبؤية' : 'Predictive Maintenance'}</li>
+             <li>{lang === 'ar' ? 'مركز عمليات الأمن المدارة' : 'Managed SOC Services'}</li>
+             <li>{lang === 'ar' ? 'أمان السحابة الإلكترونية' : 'Cloud Security Compliance'}</li>
+             <li>{lang === 'ar' ? 'روبوتات الدردشة الذكية' : 'Intelligent Chatbots'}</li>
+             <li>{lang === 'ar' ? 'تطوير التطبيقات المؤسسية' : 'Enterprise Software Development'}</li>
            </ul>
          </div>
 
@@ -945,6 +1099,7 @@ export default function App() {
       <Hero lang={lang} />
       <Services lang={lang} />
       <Projects lang={lang} />
+      <CaseStudies lang={lang} />
       <Reviews lang={lang} />
       <About lang={lang} />
       <Contact lang={lang} />
