@@ -194,34 +194,12 @@ const Projects = ({ lang }) => (
 
       {(() => {
         const projects = [
-
-          {
-            title: "GetFact - AI Fact Checker",
-            description: lang === 'ar' ? 'نظام كشف الأخبار المزيفة باستخدام الذكاء الاصطناعي' : 'AI-powered fact-checking system for news verification',
-            image: `${process.env.PUBLIC_URL}/projects/getfact.png`,
-            link: "https://fact-check-nine.vercel.app/",
-            tags: ["React", "AI/ML", "NLP", "Fact Checking"],
-          },
-
           {
             title: "OmniFood - Smart Food Delivery",
             description: lang === 'ar' ? 'منصة توصيل طعام ذكية مع نظام توصيات متقدم' : 'Smart food delivery platform with advanced recommendation system',
             image: `${process.env.PUBLIC_URL}/projects/omnifood.png`,
             link: "https://omnifood-sable-xi.vercel.app/",
             tags: ["React", "AI Recommendations", "E-commerce"],
-          },
-          {
-            title: "GoToMail - Email Automation",
-            description: lang === 'ar' ? 'نظام أتمتة البريد الإلكتروني للمؤسسات' : 'Enterprise email automation and marketing platform',
-            image: `${process.env.PUBLIC_URL}/projects/emails.png`,
-            link: "https://email-sender-com.vercel.app/",
-            tags: ["Python", "Django", "Email Marketing", "Automation"],
-          },
-          {
-            title: "DataHandler",
-            image: `${process.env.PUBLIC_URL}/projects/data.png`,
-            link: "https://data-handler2.vercel.app/",
-            tags: ["Python", "Django", "Brevo", "React", "HTML", "CSS", "JS", "Bootstrap"],
           },
           {
             title: "Aliyn",
@@ -246,13 +224,6 @@ const Projects = ({ lang }) => (
             image: `${process.env.PUBLIC_URL}/projects/ecommerce.png`,
             link: "https://t-empire.netlify.app/",
             tags: ["Python", "Django", "DRF"],
-          },
-          {
-            title: "AI ChatBot - Customer Support",
-            description: lang === 'ar' ? 'روبوت دردشة ذكي لخدمة العملاء باستخدام GPT' : 'Intelligent customer support chatbot powered by GPT',
-            image: `${process.env.PUBLIC_URL}/projects/chatbot.png`,
-            link: "https://una-chatbot.onrender.com/",
-            tags: ["Python", "Django", "OpenAI", "GPT", "Customer Support"],
           },
           {
             title: "AirTravel-Booking-System",
